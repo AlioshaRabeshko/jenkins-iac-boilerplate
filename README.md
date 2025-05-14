@@ -8,3 +8,4 @@ Instructions on how to install and set up the project.
 - run docker compose up --build
 - run and fail seed job
 - go to http://localhost:8080/scriptApproval/ and approve seed job
+- go and run seed job again

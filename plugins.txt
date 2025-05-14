@@ -1,5 +1,8 @@
 workflow-aggregator
 job-dsl
 git
+git-client
 blueocean
 configuration-as-code
+scm-api
+workflow-scm-step
