@@ -3,7 +3,7 @@ FROM jenkins/jenkins:lts
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 USER root
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs \
+    && apt-get install -y nodejs docker.io \
     && npm install -g npm
 
 USER jenkins
