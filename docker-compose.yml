@@ -7,10 +7,11 @@ services:
       - "50000:50000"
     volumes:
       - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - ./.env
     environment:
       - CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/casc.yaml
-      - JENKINS_ADMIN_LOGIN=${JENKINS_ADMIN_LOGIN}
-      - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD}
 
 volumes:
   jenkins_home:

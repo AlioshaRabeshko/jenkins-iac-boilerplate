@@ -6,7 +6,7 @@ job('git-poll-job') {
             remote {
                 url('https://github.com/AlioshaRabeshko/vix.git')
             }
-            branch('master')
+            branch('*')
         }
     }
 

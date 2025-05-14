@@ -1,12 +1,14 @@
 import jenkins.model.*
 import hudson.model.*
 import javaposse.jobdsl.plugin.ExecuteDslScripts
+import javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration
+import jenkins.model.GlobalConfiguration
 
+println "--> disabling scripts security for job dsl scripts"
+GlobalConfiguration.all().get(GlobalJobDslSecurityConfiguration.class).useScriptSecurity=false
 
 println "--> Creating seed job"
-
-def instance = Jenkins.getInstance()
-
+def instance = Jenkins.instance
 def jobName = "seed-job"
 def job = instance.getItem(jobName)
 if (job == null) {
@@ -21,4 +23,7 @@ if (job == null) {
 
     seedJob.buildersList.add(dslBuilder)
     seedJob.save()
+    seedJob.scheduleBuild2(0)
+} else {
+    println "--> Seed job already exists, skipping creation"
 }
